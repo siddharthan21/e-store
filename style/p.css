@@ -3,8 +3,9 @@
     margin: 0;
 }
 .product{
-    background-color: #C0C0F0;
-    border-radius: 25px;
+    /* background-color: #a6a6ac; */
+    border: 2px solid #a6a6ac;
+    border-radius:0 0 25px 25px;
     /* background: linear-gradient( bottom right, lavender 0%, lavender 100%) 100% no-repeat; */
 
 }
@@ -29,7 +30,6 @@
     height: 350px;
     /* height: ; */
     padding-top: 10px;
-    /* background-color: red; */
     font-size: 25px;
 }
 .size{
@@ -85,7 +85,7 @@ img{
         width: 330px;
     }
 }
-@media(max-width:760px) {
+@media(max-width:530px) {
     .main-img{
         animation: none;
     }

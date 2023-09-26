@@ -26,6 +26,9 @@
         <?php require_once("./templeate/mainimge.php") ?>
     </div>
     </main>
+    <footer>
+        <?php require_once("./templeate/footer.php") ?>
+    </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="./js/product.js"></script>

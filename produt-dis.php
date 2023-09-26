@@ -1,21 +1,28 @@
+<!-- <img src="<?php // echo $q.$a+1?>.webp" alt=""> -->
+
 <?php 
     session_start();
+    include("./connection.php");
+    $id = $_SESSION['id'];
     $email = $_SESSION['email'];
-    // echo $email;
-    include("../connection.php");
-    $prosql = "SELECT * FROM imqge where productid = 't-1' limit 1 ";
+    $prosql = "SELECT * FROM imqge where productid = '$id' limit 1 ";
     $resultprosql = $conn->query($prosql);
     if(($resultprosql->num_rows > 0)){
         $product = $resultprosql->fetch_assoc();
     }
     // print_r($product);
-    $moresql = "SELECT * FROM moreinfo where productid = 't-1' limit 1 ";
+    $moresql = "SELECT * FROM moreinfo where productid = '$id' limit 1 ";
     $moreresult = $conn->query($moresql);
     if(($moreresult->num_rows > 0)){
         $moreproduct = $moreresult->fetch_assoc();
     }
+    // echo "<br/>";
     // print_r($moreproduct);
+    $q = "./img/p-" . $id[2]."/img-";
+    // echo $q;
 ?>
+<!--  -->
+<!-- <img src="./img/p-1/img-1.webp" alt=""> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,14 +34,14 @@
 <body>
     <header>
         <?php  
-            require_once("../templeate/header.php");
+            require_once("./templeate/header.php");
         ?>
     </header>
     <main>
         <div class="product product-1">
             <div class="iner">
                 <div class="full-img">
-                    <img src="../img/p-0/<?php echo $moreproduct['img-1'] ?>.webp" class="main-img" id="img" width="330px" alt="">
+                    <img src="<?php echo $q."1"?>.webp" class="main-img" id="img" width="330px" alt="">
                 </div>
                 <div class="iner-2">
                     <div class="">
@@ -68,13 +75,14 @@
             </div>
         </div>
         <div class="iner-3">
-                <?php for($i=1;$i<5;$i++){?> 
-                    <img src="../img/p-0/img-<?php echo $i?>.webp" class="inn img-<?php echo $i?>" id="inn" width="200px" alt="">    
+                <?php for($i=0;$i<4;$i++){?> 
+                    <img src="<?php echo $q.$i+1?>.webp" class="inn img-<?php echo $i+1
+                    ?>" id="<?php echo $moreproduct['productid']?>" width="200px" alt="">    
                 <?php } ?>
         </div>
         <!-- <img src="" alt="" srcset=""> -->
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../js/product.js"></script>
+    <script src="./js/product.js"></script>
 </body>
 </html>

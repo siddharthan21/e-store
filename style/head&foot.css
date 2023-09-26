@@ -44,6 +44,30 @@ h5{
     width: fit-content;
     background-color:tomato;
 }
+footer{
+    height: 10vh;
+    background-color: black;
+    /* max-width: 1000px; */
+}
+.footer>div > a{
+    color: aliceblue;
+}
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1300px;
+    align-items: center;
+    /* background-color: chocolate; */
+    height: 10vh;
+    margin: 0 auto;
+    color: white;
+}
+.con{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 @media(max-width:760px) {
     .header{
         /* width: 150px; */

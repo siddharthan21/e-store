@@ -7,11 +7,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         if(array_key_exists($value,$_POST)){
                 // print($value);
                 $_SESSION['id'] = $value;
-                $id = $_SESSION['id'];
                 // echo $id;
                 // print_r($_SESSION);
-                header("location:sample.php");
-                
+                header("location:produt-dis.php");
+
         }   
       }
 }

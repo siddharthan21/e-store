@@ -3,7 +3,7 @@ $(".inn").click(function (e) {
     // alert("ls");
     let v = this.className[8];
     // console.log(this.className[8]);
-    console.log(this.id[2]);
+    // console.log(this.id[2]);
     let p = this.id[2];
     let a = "../img/p-"+p+"/img-"+v+".webp";
     console.log(a);
