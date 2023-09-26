@@ -1,0 +1,151 @@
+html{
+    /* background-color: #EAE9E5; */
+/* */
+}
+.main-main-1{
+    background-color: #EAE9E5;
+    /* width: 100%; */
+    background-position: center;
+    /* background-size: cover; */
+}
+
+.main-image{
+    min-height: calc(100vh - 60px);
+    background-image: url("../img/bg/slide-03.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* box-shadow: inset 0 0px 100px 200px white; */
+}
+.bg-img{
+    /* box-shadow: inset 2px 2px 2px 2px red; */
+    font-size: 2rem;
+    color: black;    
+    /* width: 550px; */
+    text-align: end;
+    text-shadow:  20px 15px 5px palevioletred;
+    color:darkslategrey;
+}
+.main-items-1{
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    gap: 35px;
+    justify-content: space-around;
+    
+}
+.item{
+    width: 300px;
+    border: 1px solid rgb(99, 95, 95);
+    border-radius: 5px;
+    height: 200px;
+
+}
+.women{
+    background-image: url("https://themewagon.github.io/cozastore/images/banner-01.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.item > h3{
+    margin: 1.3rem;
+}
+.item > p{
+    margin: -.7rem 1.3rem;
+}
+.men{
+
+    background-image: url("https://themewagon.github.io/cozastore/images/banner-02.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.acces{
+    background-image: url("https://themewagon.github.io/cozastore/images/banner-03.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.off{
+    text-decoration: line-through;
+}
+.select > h1{
+    text-align: center;
+}
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 0 auto;
+    height:fit-content;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.card > h4,h3   {
+    opacity: .7;
+    font-size: 1rem;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card{
+    position: relative;
+}
+.immg{
+    width: 300px;
+    /* height: 300px; */
+}
+.card:hover .immg{
+    transform: scale(.8);
+    transition: 1s;
+    z-index:2;
+    border: 1px solid #EAE9E5;
+}
+#view{
+    position: absolute;
+    z-index: -2;
+    bottom: 19%;
+    border: 1px solid plum;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #EAE9E5;
+}
+.card:hover #view{
+    color: rebeccapurple;
+    right: 50%;
+    bottom:30%;
+    z-index: 2;
+    transition: 1.3s;
+}
+.wel{
+    text-align: center;
+    background-color: red;
+}
+@media(max-width:760px) {
+    .header{
+        flex-direction: column;
+        gap: 40px;
+    }
+    .bg-img *{
+        font-size: 20px;
+        text-align: center;
+        width: 250px;
+        /* background-color: red; */
+    }
+    /* .item * {
+        margin: 20px;
+        width: 250px;
+        height: 180px;
+    } */
+    .list{
+        /* background-color: red; */
+        justify-content: center;
+        align-items: center;
+    }
+}
