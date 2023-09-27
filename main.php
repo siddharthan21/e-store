@@ -1,7 +1,7 @@
 <?php 
     session_start();
     include("connection.php");
-    include("function.php");
+    // include("function.php");
     $user_name = $_SESSION['username'];
     $email = $_SESSION['email'];
     if($user_name){

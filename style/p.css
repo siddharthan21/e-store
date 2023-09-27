@@ -63,7 +63,7 @@ img{
     flex-wrap: wrap;
     border: 2px solid lavender;
 }
-.iner-3 *:hover{
+.iner-3>img:hover{
     cursor:grab;
     transform: scale(.8);
     transition:1.5s;

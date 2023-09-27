@@ -74,3 +74,13 @@ footer{
         /* background-color: bisque; */
     }
 }
+.home{
+    border: 1px black solid;
+    padding: 13px;
+    border-radius: 10px;
+}
+.home:hover{
+    box-shadow: inset 0px 0px 40px 1px cornflowerblue;
+    color:midnightblue;
+    transition: 1s;
+}

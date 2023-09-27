@@ -1,28 +1,69 @@
-<!-- <img src="<?php // echo $q.$a+1?>.webp" alt=""> -->
-
 <?php 
     session_start();
     include("./connection.php");
     $id = $_SESSION['id'];
     $email = $_SESSION['email'];
+    $cartid = $_SESSION['cartid'];
     $prosql = "SELECT * FROM imqge where productid = '$id' limit 1 ";
     $resultprosql = $conn->query($prosql);
     if(($resultprosql->num_rows > 0)){
         $product = $resultprosql->fetch_assoc();
     }
-    // print_r($product);
     $moresql = "SELECT * FROM moreinfo where productid = '$id' limit 1 ";
     $moreresult = $conn->query($moresql);
     if(($moreresult->num_rows > 0)){
         $moreproduct = $moreresult->fetch_assoc();
     }
-    // echo "<br/>";
-    // print_r($moreproduct);
     $q = "./img/p-" . $id[2]."/img-";
-    // echo $q;
-?>
-<!--  -->
-<!-- <img src="./img/p-1/img-1.webp" alt=""> -->
+
+
+
+    if(isset($_POST['addCart'])){
+        // echo "okay";
+        if(isset($_SESSION['cart'])){
+
+            $pid_array=array_column($_SESSION["cart"],"pid");
+					if(!in_array($_SESSION["id"],$pid_array))
+					{
+						$index=count($_SESSION["cart"]);
+						$item=array(
+							'pid' => $_SESSION["id"],
+							'pname' => $_POST["pname"],
+							'price' => $_POST["price"],
+							'qty' => $_POST["qty"]
+						);
+						$_SESSION["cart"][$index]=$item;
+                        // echo $item;
+							echo "<script>alert('Product Added..');</script>";
+						    header("location:./function.php");
+                        print_r($item);
+
+					}
+					else
+					{
+						// echo "<script>alert('Already Added..');</script>";
+						header("location:./function.php");
+
+					}
+
+        }
+        else{
+            $item=array(
+                'pid' => $_SESSION["id"],
+                'pname' => $_POST["pname"],
+                'price' => $_POST["price"],
+                'qty' => $_POST["qty"]
+            );
+            $_SESSION["cart"][0]=$item;
+            echo "<script>alert('Product Added..');</script>";
+            header("location:./function.php");
+            echo $item;
+        }
+    }
+
+
+
+?></html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,26 +103,32 @@
                             <input type="radio" name="l" id="s" value="S">
                         </div>
                         <div class="s">
-                            <p>XL</p>
+                            <p>XL</p>   
                             <input type="radio" name="xl" id="s" value="S">
                         </div>
                     </div>
                     <div class="buy">
-                        <h4>Add To Cart</h4>
+                    <form action="" method="post">
+                    <p><input type="text"  placeholder="Enter Qty" name="qty"  class="form-control"></p>
+	                <p><input type="hidden"  name="pname" value="<?php $product['type'] ?>" class="form-control"></p>
+	                <p><input type="hidden"  name="price" value="<?php $product['price'] ?>" class="form-control"></p>
+	                <p><input type="submit" name="addCart" class="btn btn-success" value="Add to Cart"></p>
+                </form>
                         <h4>Buy Now</h4>
                     </div>
                 </div>
-                <!-- <img src="../img/p-0/img-2.webp" alt="" srcset=""> -->
             </div>
         </div>
         <div class="iner-3">
                 <?php for($i=0;$i<4;$i++){?> 
                     <img src="<?php echo $q.$i+1?>.webp" class="inn img-<?php echo $i+1
-                    ?>" id="<?php echo $moreproduct['productid']?>" width="200px" alt="">    
+                    ?>" id="<?php echo $product['productid']?>" width="200px" alt="">    
                 <?php } ?>
         </div>
-        <!-- <img src="" alt="" srcset=""> -->
     </main>
+    <footer>
+        <?php require_once("./templeate/footer.php") ?>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./js/product.js"></script>
 </body>

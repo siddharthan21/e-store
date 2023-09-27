@@ -2,7 +2,7 @@
 
     // session_start();
     include("./connection.php");
-    include("./function.php");
+    // include("./function.php");
     // print_r($_SERVER);
     if($_SERVER['REQUEST_METHOD']== 'POST'){
         $user_name = $_POST['email'];
@@ -16,6 +16,7 @@
                 if($user_data['password']=== $password){
         		    $_SESSION['username'] = $user_data['name'];
         		    $_SESSION['email'] = $user_data['email'];
+        		    $_SESSION['cartid'] = $user_data['cartid'];
                     echo "yes";
                     header("Location:main.php");
                 }
